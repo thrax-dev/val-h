@@ -37,11 +37,17 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@main
 
+      - name: Checks before artifact
+        run: ls -al
+
       - name: Download artifact
         uses: actions/download-artifact@main
         with:
           name: dist
           path: dist
+
+      - name: Checks before file uploads
+        run: pwd && ls -al && cd dist/ && ls -al
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@master
