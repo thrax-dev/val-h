@@ -9,7 +9,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, 'nested/index.html'),
+        components: resolve(__dirname, 'components/index.html'),
+        UI: resolve(__dirname, 'components/UI/index.html'),
+        layout: resolve(__dirname, 'components/layout/index.html'),
       },
     },
   },
