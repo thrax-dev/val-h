@@ -20,11 +20,11 @@ jobs:
       - name: 🔨 Build App
         run: npm run build
 
-      - name: Archieve production artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: dist
-          path: dist
+      # - name: Archieve production artifact
+      #   uses: actions/upload-artifact@main
+      #   with:
+      #     name: dist
+      #     path: dist
 
   deploy:
     name: Deploy Job
