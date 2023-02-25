@@ -34,11 +34,11 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@main
 
-      - name: Download artifact
-        uses: actions/download-artifact@main
-        with:
-          name: dist
-          path: dist
+      # - name: Download artifact
+      #   uses: actions/download-artifact@main
+      #   with:
+      #     name: dist
+      #     path: dist
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
