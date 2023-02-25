@@ -3,6 +3,9 @@ name: Hostinger Continuous Deployment
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'components'
+      - 'pages'
 
   workflow_dispatch:
 
@@ -38,7 +41,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: dist
-          path: .
+          path: dist
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@master
