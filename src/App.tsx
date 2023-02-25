@@ -1,14 +1,15 @@
-import Header from "./components/Header";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import Main from "./components/layout/Main";
 
 const App = () => {
   return (
-    <div className="max-h-screen max-w-screen h-screen w-screen">
+    <div className="relative h-screen w-screen">
       <Header />
-      <div className="w-full h-5/6 flex justify-center items-center">
-        <h1 className="text-2xl text-green-500 font-bold tracking-wider">
-          personal space of val-h
-        </h1>
-      </div>
+      {/* Outlet to be in Main */}
+      <Main />
+      {/* Possibly a sidebar */}
+      <Footer />
     </div>
   );
 };
