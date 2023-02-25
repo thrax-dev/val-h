@@ -6,10 +6,11 @@ on:
 
 jobs:
   build:
+    name: Build Job
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: 📦 Install packages
         run: npm ci
@@ -17,14 +18,30 @@ jobs:
       - name: 🔨 Build App
         run: npm run build
 
+      - name: Archieve production artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: dist
+          path: dist
+
   deploy:
-    runs-on: ubuntu-latest
+    name: Deploy Job
     needs: build
+    runs-on: ubuntu-latest
     steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@main
+
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with:
+          name: dist
+          path: dist
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: ./dist/
+          # local-dir: ./dist/
