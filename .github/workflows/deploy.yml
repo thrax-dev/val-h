@@ -46,7 +46,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: dist
-          path: dist
+          path: dist/.
 
       - name: Checks before file uploads
         run: pwd && ls -al && cd dist/ && ls -al
