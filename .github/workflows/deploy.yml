@@ -48,16 +48,12 @@ jobs:
           name: dist
           path: dist
 
-      - name: Change file structure
-        run: |
-          mv ./dist/. .
-          rm -rf dist
-
       - name: Checks before file uploads
         run: pwd && ls -al && cd dist/ && ls -al
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@master
+        run: cd dist/
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
