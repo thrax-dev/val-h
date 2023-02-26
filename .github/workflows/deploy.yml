@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - 'components'
-      - 'pages'
+      - "components"
+      - "pages"
 
   workflow_dispatch:
 
@@ -40,6 +40,8 @@ jobs:
       - name: Checks before artifact
         run: ls -al
 
+        # try to remove all folders and files except the dist artifact
+
       - name: Download artifact
         uses: actions/download-artifact@main
         with:
@@ -59,5 +61,8 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            components/
-            pages
+            ./src/components/
+            ./src/pages/
+
+
+# Investigate - it works, but id doesn't work ???
