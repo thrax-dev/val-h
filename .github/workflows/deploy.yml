@@ -34,8 +34,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@main
+      # - name: 🚚 Get latest code
+      #   uses: actions/checkout@main
 
       - name: Checks before artifact
         run: ls -al
@@ -57,12 +57,12 @@ jobs:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            ./src/components/
-            ./src/pages/
+          # exclude: |
+          #   **/.git*
+          #   **/.git*/**
+          #   **/node_modules/**
+          #   ./src/components/
+          #   ./src/pages/
 
 
 # Investigate - it works, but id doesn't work ???
