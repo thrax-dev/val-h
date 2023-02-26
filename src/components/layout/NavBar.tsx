@@ -7,7 +7,7 @@ const NavBar: React.FC = () => {
       <NavLinkUI title="Home" selected={true} />
       <NavLinkUI title="Projects" />
       <NavLinkUI title="Contact" />
-      <NavLinkUI title="Me, Myself and I" />
+      {/* <NavLinkUI title="Me, Myself and I" /> */}
     </nav>
   );
 };

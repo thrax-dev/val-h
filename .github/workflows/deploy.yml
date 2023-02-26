@@ -3,9 +3,6 @@ name: Hostinger Continuous Deployment
 on:
   push:
     branches: [main]
-    # paths-ignore:
-    #   - "components"
-    #   - "pages"
 
   workflow_dispatch:
 
@@ -34,22 +31,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      # - name: 🚚 Get latest code
-      #   uses: actions/checkout@main
-
-      - name: Checks before artifact
-        run: ls -al
-
-        # try to remove all folders and files except the dist artifact
-
-      - name: Download artifact
+      - name: 🚚 Download artifact
         uses: actions/download-artifact@main
         with:
           name: dist
-          path: dist
-
-      - name: Checks before file uploads
-        run: pwd && ls -al && cd dist/ && ls -al
+          path: .
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@master
@@ -57,10 +43,4 @@ jobs:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: ./dist/
-          # exclude: |
-          #   **/.git*
-          #   **/.git*/**
-          #   **/node_modules/**
-          #   ./src/components/
-          #   ./src/pages/
+          # local-dir: ./dist/
