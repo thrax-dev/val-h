@@ -9,7 +9,7 @@ const App = () => {
       {/* Outlet to be in Main */}
       <Main />
       {/* Possibly a sidebar */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

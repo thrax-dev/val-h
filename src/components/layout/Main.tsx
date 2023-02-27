@@ -1,9 +1,9 @@
+import AboutMe from "../AboutMe";
+
 const Main: React.FC = () => {
   return (
-    <main className="w-full h-5/6 flex justify-center items-center">
-      <h1 className="text-2xl text-pf font-bold tracking-wider">
-        personal space of val-h
-      </h1>
+    <main className="w-full px-3 md:px-10 flex justify-center md:block">
+      <AboutMe />
     </main>
   );
 };
